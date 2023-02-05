@@ -9,7 +9,18 @@ module.exports = {
 		'./src/**/*.{js,ts,jsx,tsx}',
 	],
 	theme: {
-		extend: {},
+		extend: {
+			aspectRatio: {
+				'4/3': '4 / 3',
+			},
+			screens: {
+				brp: '1440px',
+			},
+		},
 	},
-	plugins: [],
+	plugins: [require('daisyui'), require('@tailwindcss/line-clamp')],
+
+	daisyui: {
+		themes: ['dracula'],
+	},
 }
