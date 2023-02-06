@@ -1,3 +1,4 @@
+import ModalUpload from '@/components/ModalUpload'
 import MyDatasets from '@/components/MyDatasets'
 import MyPurchased from '@/components/MyPurchased'
 import { useContract } from '@/contexts/ContractContext'
@@ -9,6 +10,7 @@ const dashboard = () => {
 	const [activeOption, setActiveOption] = useState(0)
 	const router = useRouter()
 	const { userAddress } = useUser()
+	const [openModal, setOpenModel] = useState(false)
 
 	useEffect(() => {
 		if (!userAddress) {
@@ -38,8 +40,10 @@ const dashboard = () => {
 							My Purchased dataset
 						</a>
 					</li>
-					<div className='px-8 bottom-2 grow flex items-end'>
-						<button className='btn btn-secondary mb-10'>+ Add dataset</button>
+					<div className='px-8 bottom-2 grow flex items-end justify-center'>
+						<label htmlFor='my-modal-3' className='btn btn-secondary mb-10'>
+							+ Create new dataset
+						</label>
 					</div>
 				</ul>
 			</div>
@@ -48,6 +52,8 @@ const dashboard = () => {
 			<div className='w-[100%]'>
 				{activeOption ? <MyPurchased /> : <MyDatasets />}
 			</div>
+
+			<ModalUpload />
 		</div>
 	)
 }
