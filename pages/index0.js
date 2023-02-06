@@ -205,7 +205,7 @@ export default function Home() {
 		// }
 	}
 
-	const newDeployEncrypted = async () => {
+	const newDeployEncrypted = async (e) => {
 		const sig = await encryptionSignature2()
 		console.log({ sig })
 		const { JWT, error: jwtError } = await getJWT(
@@ -219,7 +219,7 @@ export default function Home() {
 		const endpoint = 'https://node.lighthouse.storage' + '/api/v0/add'
 		const token = 'Bearer ' + process.env.NEXT_PUBLIC_LIGHTHOUSE_API_KEY
 
-		const shuffledArr = lodash.shuffle(files.target.files)
+		const shuffledArr = lodash.shuffle(e.target.files)
 
 		for (let i = 0; i < shuffledArr.length; i++) {
 			let fileToUpload = shuffledArr[i]

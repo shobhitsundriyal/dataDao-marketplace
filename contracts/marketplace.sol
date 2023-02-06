@@ -58,21 +58,34 @@ contract data_marketplace {
         marketplaceToken.mint(_to, _datasetId, _amount, '');
     }
 
-    function createDatasetSlot() public returns(uint256) {
+    // function createDatasetSlot() public returns(uint256) {
+    //     latestDataId += 1;
+    //     datasetOwner[latestDataId] = msg.sender;
+    //     createdDatasetsBy[msg.sender].push(latestDataId);
+    //     return latestDataId;
+    // }
+
+    // function uploadData(uint256 _datasetId, uint _price, string memory _cidIndexer, string memory _cidMetadata) public {
+    //     require(_datasetId <= latestDataId, "this dataset don't exists");
+    //     require(datasetOwner[_datasetId] == msg.sender, "You are not allowed to upload for this dataset");
+    //     require(isDataUploaded[_datasetId] == false, "Data already exist for this data");
+    //     datasetIndexerFile[_datasetId] = _cidIndexer;
+    //     datasetMetaDateFile[_datasetId] = _cidMetadata;
+    //     isDataUploaded[_datasetId] = true;
+    //     datasetPrice[_datasetId] = _price;
+    // }
+
+    function createdDataset(uint _price, string memory _cidIndexer, string memory _cidMetadata) public {
+        // require(_datasetId+1 <= latestDataId, "this dataset don't exists");
         latestDataId += 1;
         datasetOwner[latestDataId] = msg.sender;
         createdDatasetsBy[msg.sender].push(latestDataId);
-        return latestDataId;
-    }
 
-    function uploadData(uint256 _datasetId, uint _price, string memory _cidIndexer, string memory _cidMetadata) public {
-        require(_datasetId <= latestDataId, "this dataset don't exists");
-        require(datasetOwner[_datasetId] == msg.sender, "You are not allowed to upload for this dataset");
-        require(isDataUploaded[_datasetId] == false, "Data already exist for this data");
-        datasetIndexerFile[_datasetId] = _cidIndexer;
-        datasetMetaDateFile[_datasetId] = _cidMetadata;
-        isDataUploaded[_datasetId] = true;
-        datasetPrice[_datasetId] = _price;
+        datasetIndexerFile[latestDataId] = _cidIndexer;
+        datasetMetaDateFile[latestDataId] = _cidMetadata;
+        isDataUploaded[latestDataId] = true;
+        datasetPrice[latestDataId] = _price;
+        
     }
 
     function withdrawFunds(uint _datasetId, uint256 _amount) public {
