@@ -12,6 +12,7 @@
     "@lighthouse-web3/kavach": "^0.1.2",
     "@lighthouse-web3/sdk": "^0.1.12",
     "@next/font": "13.1.6",
+    "@pushprotocol/uiweb": "^0.2.3",
     "@tailwindcss/line-clamp": "^0.4.2",
     "axios": "^1.2.6",
     "daisyui": "^2.49.0",

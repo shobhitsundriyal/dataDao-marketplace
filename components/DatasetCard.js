@@ -3,6 +3,7 @@ import { useContract } from '@/contexts/ContractContext'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { lighthouseConstants } from '@/constants'
+import Image from 'next/image'
 
 const DatasetCard = ({ img, title, desc, id }) => {
 	const router = useRouter()
@@ -28,7 +29,7 @@ const DatasetCard = ({ img, title, desc, id }) => {
 			className=' border-2 h-[16rem] aspect-4/3 overflow-hidden rounded-lg cursor-pointer'
 			onClick={() => router.push(`/dataset/${id}`)}
 		>
-			<img
+			<Image
 				src={`${
 					details.coverImageCid
 						? lighthouseConstants.lighthouseGateway +
@@ -38,6 +39,8 @@ const DatasetCard = ({ img, title, desc, id }) => {
 				}`}
 				alt=''
 				className=' object-fill w-full h-[50%]'
+				width={200}
+				height={100}
 			/>
 			<div className=' text-white mt-2 font-bold text-xl ml-2 mr-2'>
 				{' '}

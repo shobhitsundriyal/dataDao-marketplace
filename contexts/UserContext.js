@@ -7,8 +7,8 @@ export const UserContextProvider = ({ children }) => {
 	const [userJWT, setUserJWT] = useState()
 
 	const setUser = (address = null, jwtToken = null) => {
-		setUserAddress(address)
-		setUserJWT(jwtToken)
+		if (address) setUserAddress(address)
+		if (jwtToken) setUserJWT(jwtToken)
 	}
 	return (
 		<>
