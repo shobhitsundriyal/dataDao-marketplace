@@ -10,6 +10,7 @@ export const UserContextProvider = ({ children }) => {
 		if (address) setUserAddress(address)
 		if (jwtToken) setUserJWT(jwtToken)
 	}
+
 	return (
 		<>
 			<UserContext.Provider value={{ userAddress, userJWT, setUser }}>
